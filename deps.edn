@@ -1,0 +1,14 @@
+{:paths   ["src" "site"]
+
+ ;; External dependencies
+ :deps    {org.clojure/clojure {:mvn/version "1.10.1"}
+           stasis/stasis       {:mvn/version "2.5.0"}
+           hiccup/hiccup       {:mvn/version "1.0.5"}
+           http-kit/http-kit   {:mvn/version "2.5.1"}
+           }
+
+ :aliases {:dev {:extra-paths ["dev"]
+                 :extra-deps  {org.clojure/tools.namespace {:mvn/version "1.0.0"}
+                               ysera/ysera                 {:mvn/version "2.0.2"}}}}
+ }
+
