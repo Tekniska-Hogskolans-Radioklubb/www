@@ -19,7 +19,16 @@
      ]))
 
 
+;; This function should - in essence - just return a map of paths => content,
+;; where the content may be HTML-strings, file content etc.
+;; An optimization Stasis understands is to replace the content with a lambda function
+;; which returns the content when called.
+;;
+;; Simply merging multiple such maps together is convenient way of composing the site,
+;; but conflicting paths will be silently overwritten. Stasis provides a helper function
+;; which detects and reports such conflicts upon merge - stasis/merge-page-sources.
+;; The helper is not currently used.
 (defn get-pages []
   (merge
-    (stasis/slurp-directory "site" #".*\.(html|css|js)$")
+    (stasis/slurp-directory "site/public" #".*\.(html|css|js)$")
     {"/test/" (fn [request] (layout-page))}))
