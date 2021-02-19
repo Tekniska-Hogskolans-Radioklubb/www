@@ -1,14 +1,14 @@
-{:paths   ["src" "site"]
+{;; Add "src" and "site" directories to the classpath
+ :paths ["src" "site"]
 
  ;; External dependencies
- :deps    {org.clojure/clojure {:mvn/version "1.10.1"}
-           stasis/stasis       {:mvn/version "2.5.0"}
-           hiccup/hiccup       {:mvn/version "1.0.5"}
-           http-kit/http-kit   {:mvn/version "2.5.1"}
-           }
-
- :aliases {:dev {:extra-paths ["dev"]
-                 :extra-deps  {org.clojure/tools.namespace {:mvn/version "1.0.0"}
-                               ysera/ysera                 {:mvn/version "2.0.2"}}}}
+ :deps  {org.clojure/clojure         {:mvn/version "1.10.1"}
+         org.clojure/tools.cli       {:mvn/version "1.0.194"} ;; For command line execution
+         org.clojure/tools.namespace {:mvn/version "1.0.0"} ;; For reloading namespaces in development
+         stasis/stasis               {:mvn/version "2.5.0"} ;; For creating static sites
+         hiccup/hiccup               {:mvn/version "1.0.5"} ;; For generating HTML markup
+         http-kit/http-kit           {:mvn/version "2.5.1"} ;; For serving pages in development
+         ring/ring-devel             {:mvn/version "1.9.1"} ;; For reloading changed namespaces in development server
+         }
  }
 
